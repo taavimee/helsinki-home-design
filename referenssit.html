@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referenssit – Helsinki Home Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --black: #1a1a1a;
+    --gold: #C9A96E;
+    --white: #FFFFFF;
+    --cream: #F5F0E8;
+    --cream-dark: #EDE6D6;
+    --text-mid: #555;
+    --text-light: #999;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+  body { overflow-x: hidden; max-width: 100%; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,244,0.97);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; height: 70px; backdrop-filter: blur(8px);
+  }
+  .nav-logo a { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+  .nav-logo .logo-top { font-weight: 700; font-size: 13px; letter-spacing: 0.25em; color: var(--black); }
+  .nav-logo .logo-top span { color: var(--gold); }
+  .nav-logo .logo-bottom { font-weight: 700; font-size: 18px; letter-spacing: 0.35em; color: var(--black); margin-top: 1px; }
+  .nav-right { display: flex; align-items: center; gap: 40px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-decoration: none; color: var(--black); text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-divider { width: 1px; height: 18px; background: rgba(0,0,0,0.2); }
+  .lang-switcher { display: flex; gap: 14px; }
+  .lang-switcher a { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-decoration: none; color: var(--text-light); text-transform: lowercase; transition: color 0.2s; }
+  .lang-switcher a:hover { color: var(--gold); }
+  .lang-switcher a.active { color: var(--black); font-weight: 600; }
+  .nav-ig { color: var(--text-light); display: flex; align-items: center; text-decoration: none; transition: color 0.2s; }
+  .nav-ig:hover { color: var(--gold); }
+
+  /* PAGE HERO */
+  .page-hero {
+    height: 40vh; position: relative; display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: var(--black); margin-top: 70px;
+  }
+  .page-hero-img {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=1600&q=80') center/cover no-repeat;
+    opacity: 0.45; filter: grayscale(20%);
+  }
+  .page-hero-overlay { position: absolute; inset: 0; background: rgba(15,12,8,0.5); }
+  .page-hero-content { position: relative; z-index: 2; text-align: center; }
+  .page-hero-content h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(24px, 4vw, 52px); letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+  .page-hero-divider { width: 50px; height: 1px; background: var(--gold); margin: 18px auto; opacity: 0.7; }
+  .page-hero-sub { font-size: 9px; font-weight: 300; letter-spacing: 0.25em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+
+  /* INTRO */
+  .intro { background: var(--white); padding: 100px 60px; text-align: center; max-width: 860px; margin: 0 auto; }
+  .intro h2 { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(24px, 3.5vw, 38px); line-height: 1.35; color: var(--black); margin-bottom: 28px; letter-spacing: 0.04em; }
+  .intro p { font-size: 14px; font-weight: 300; line-height: 1.9; color: var(--text-mid); max-width: 560px; margin: 0 auto 16px; letter-spacing: 0.02em; }
+
+  /* SERVICES GRID */
+  .process { background: var(--cream); padding: 90px 60px; }
+  .process .section-title { 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: clamp(24px, 3.5vw, 38px);
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: var(--black);
+    margin-bottom: 60px;
+  }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; text-align: center; }
+  .process-step-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--gold); opacity: 0.6; line-height: 1; margin-bottom: 12px; }
+  .process-step-title { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); margin-bottom: 8px; }
+  .process-step-desc { font-size: 12px; font-weight: 300; color: var(--text-mid); line-height: 1.7; }
+
+  .service-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+    transition: background 0.2s;
+  }
+
+  .service-list-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1.6;
+    min-width: 28px;
+    padding-top: 0;
+  }
+
+  .service-list-body { flex: 1; }
+
+  .service-list-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .service-list-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-mid);
+  }
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,12,8,0.8) 0%, transparent 60%);
+  }
+  .service-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 20px; }
+  .service-title { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 4px; }
+  .service-desc { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
+
+  /* MEISTÄ */
+  .about { background: var(--cream); padding: 90px 60px; text-align: center; }
+  .about .section-title-sm { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 11px; text-align: center; color: var(--text-light); margin-bottom: 16px; letter-spacing: 0.3em; text-transform: uppercase; }
+  .about .gold-line { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 40px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1000px; margin: 0 auto; text-align: left; }
+  .about-text h3 { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 26px; color: var(--black); margin-bottom: 20px; letter-spacing: 0.05em; }
+  .about-text p { font-size: 13px; font-weight: 300; line-height: 1.9; color: var(--text-mid); margin-bottom: 14px; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .about-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--gold); line-height: 1; }
+  .about-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-mid); margin-top: 4px; }
+
+  /* MEDIA */
+  .media-section { background: var(--white); padding: 60px 0; text-align: center; border-top: 1px solid rgba(201,169,110,0.12); overflow: hidden; }
+  .section-title-sm { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 11px; text-align: center; color: var(--text-light); margin-bottom: 16px; letter-spacing: 0.3em; text-transform: uppercase; }
+  .partners-divider { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 40px; }
+  .media-marquee-wrap { overflow: hidden; width: 100%; max-width: 100%; position: relative; display: flex; justify-content: center; }
+  .media-marquee-wrap::before, .media-marquee-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+  .media-marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+  .media-marquee-wrap::after { right: 0; background: linear-gradient(to left, var(--white), transparent); }
+  .media-marquee { display: flex; align-items: center; gap: 80px; width: max-content; animation: marquee 18s linear infinite; padding: 0 40px; }
+  .media-marquee:hover { animation-play-state: paused; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-25%); } }
+  .media-logo-item { opacity: 0.4; transition: opacity 0.25s ease; display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+  .media-logo-item:hover { opacity: 0.8; }
+  .media-logo-item svg { height: 36px; width: auto; }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 70px 60px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; align-items: start; }
+  .footer-logo .logo-top { font-weight: 700; font-size: 12px; letter-spacing: 0.25em; color: rgba(255,255,255,0.7); }
+  .footer-logo .logo-top span { color: var(--gold); }
+  .footer-logo .logo-bottom { font-weight: 700; font-size: 16px; letter-spacing: 0.35em; color: rgba(255,255,255,0.7); margin-top: 1px; }
+  .footer-col h4 { font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--gold); }
+  .footer-col p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; }
+  .footer-col p strong { font-weight: 500; color: rgba(255,255,255,0.8); display: block; margin-bottom: 4px; }
+  .footer-col a.footer-link { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col a.footer-link:hover { color: var(--gold); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    line-height: 1;
+  }
+  .mobile-lang {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .mobile-lang a {
+    font-size: 12px !important;
+    color: var(--text-light) !important;
+  }
+  .mobile-lang a.active { color: var(--black) !important; font-weight: 600 !important; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex !important; }
+    .nav-right { gap: 16px; }
+    .about { padding: 60px 24px; }
+    .about-stats { grid-template-columns: repeat(2,1fr) !important; }
+    footer { grid-template-columns: 1fr !important; padding: 50px 24px; gap: 40px; }
+    .media-section { overflow: hidden; max-width: 100%; }
+    .page-header { padding: 110px 24px 40px; }
+  }
+
+
+
+
+  /* PAGE HEADER */
+  .page-header { padding: 160px 60px 60px; text-align: center; background: var(--white); }
+  .page-header h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(48px,6vw,80px); color: var(--black); margin-bottom: 20px; }
+  .page-header .gold-line { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 28px; }
+  .page-header p { font-size: 14px; font-weight: 300; color: var(--text-mid); max-width: 560px; margin: 0 auto; line-height: 1.9; }
+
+  /* GALLERY */
+  .gallery { padding: 0 40px 100px; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; }
+  .gallery-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 24px; border: 4px solid #F5F0E8; aspect-ratio: 1/1; transition: border-color 0.3s, transform 0.3s; }
+  .gallery-item:hover { border-color: #C9A96E; transform: scale(1.02); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: transform 0.5s; display: block; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-item-overlay { position: absolute; inset: 0; background: linear-gradient(to top,rgba(26,26,26,0.75),transparent 55%); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; border-radius: 20px; }
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+  .gallery-item-title { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: #fff; margin-bottom: 3px; }
+  .gallery-item-tag { font-size: 8px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .gallery-item-zoom { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; color: #fff; font-size: 14px; }
+  .gallery-item:hover .gallery-item-zoom { opacity: 1; }
+
+  /* LIGHTBOX */
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1000; display: none; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox-close { position: absolute; top: 20px; right: 24px; font-size: 28px; color: #fff; background: none; border: none; cursor: pointer; z-index: 10; }
+  .lightbox-inner { display: flex; align-items: center; gap: 20px; max-width: 90vw; max-height: 90vh; }
+  .lightbox-img-wrap { text-align: center; }
+  .lightbox-img-wrap img { max-width: 80vw; max-height: 80vh; object-fit: contain; border-radius: 4px; }
+  .lightbox-caption { margin-top: 12px; }
+  .lb-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #fff; font-weight: 300; }
+  .lb-tag { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .lightbox-nav { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 24px; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+  .lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) { .gallery-grid { grid-template-columns: repeat(5,1fr); } }
+  @media (max-width: 900px) {
+    .page-header { padding: 110px 24px 40px; }
+    .gallery { padding: 0 12px 80px; }
+    .gallery-grid { grid-template-columns: repeat(3,1fr); gap: 6px; }
+    .gallery-item:hover { transform: none; }
+    .about-stats { grid-template-columns: repeat(2,1fr) !important; }
+    .about-grid { grid-template-columns: 1fr !important; gap: 40px; }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: repeat(3,1fr); gap: 4px; }
+    .gallery-item { border-radius: 14px; border-width: 3px; }
+    .gallery-item img { border-radius: 10px; }
+  }
+
+  footer { background: var(--black); padding: 70px 60px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; align-items: start; }
+  .footer-logo .logo-top { font-weight: 700; font-size: 12px; letter-spacing: 0.25em; color: rgba(255,255,255,0.7); }
+  .footer-logo .logo-top span { color: var(--gold); }
+  .footer-logo .logo-bottom { font-weight: 700; font-size: 16px; letter-spacing: 0.35em; color: rgba(255,255,255,0.7); margin-top: 1px; }
+  .footer-col h4 { font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--gold); }
+  .footer-col p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; }
+  .footer-col p strong { font-weight: 500; color: rgba(255,255,255,0.8); display: block; margin-bottom: 4px; }
+  .footer-col a.footer-link { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col a.footer-link:hover { color: var(--gold); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    line-height: 1;
+  }
+  .mobile-lang {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .mobile-lang a {
+    font-size: 12px !important;
+    color: var(--text-light) !important;
+  }
+  .mobile-lang a.active { color: var(--black) !important; font-weight: 600 !important; }
+
+  .projects {
+    background: var(--white);
+    padding: 80px 60px 100px;
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: clamp(24px, 3.5vw, 38px);
+    text-align: center;
+    color: var(--black);
+    margin-bottom: 60px;
+    letter-spacing: 0.04em;
+  }
+
+  .section-title-sm {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+
+  /* ─── REFERENSSI KARUSELLI ─── */
+  .project-carousel { position: relative; overflow: hidden; aspect-ratio: 3/4; background: var(--cream-dark); }
+  .project-carousel-track { display: flex; transition: transform 0.45s ease; height: 100%; width: 100%; }
+  .project-carousel-track img { min-width: 100%; max-width: 100%; width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+  .carousel-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.85); border: none; border-radius: 50%;
+    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px; color: var(--black); z-index: 5;
+    transition: background 0.2s;
+  }
+  .carousel-arrow:hover { background: rgba(255,255,255,1); }
+  .carousel-arrow.prev { left: 10px; }
+  .carousel-arrow.next { right: 10px; }
+  .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
+  .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s; border: none; padding: 0; }
+  .carousel-dot.active { background: var(--white); }
+
+  .project-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--cream-dark);
+    position: relative;
+  }
+
+  .project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .project-card:hover .project-img img {
+    transform: scale(1.04);
+  }
+
+  .project-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-img-placeholder span {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-light);
+    text-transform: uppercase;
+  }
+
+  .project-info { padding: 16px 0 24px; }
+
+  .project-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: clamp(14px, 1.2vw, 18px);
+    letter-spacing: 0.04em;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .project-location {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+
+  .project-details {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-mid);
+    letter-spacing: 0.03em;
+  }
+
+
+
+  @media (max-width: 900px) {
+    .projects { padding: 40px 0 60px; }
+    .projects-grid { grid-template-columns: 1fr !important; gap: 32px; max-width: 100% !important; margin: 0 !important; padding: 0 16px; box-sizing: border-box; }
+    .project-card { width: 100%; box-sizing: border-box; }
+    .project-carousel:hover { transform: none; }
+  }
+
+    .project-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-top: 10px;
+    letter-spacing: 0.01em;
+  }
+
+  .cta-center {
+    text-align: center;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 14px 48px;
+    border: 1px solid var(--black);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
+    transition: all 0.3s ease;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .btn-gold {
+    display: inline-block;
+    padding: 14px 48px;
+    border: 1px solid var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gold);
+    transition: all 0.3s ease;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .btn-gold:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  /* ─── CATEGORY CARDS ─── */
+  .categories { padding: 0; }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
+    background: var(--cream);
+  }
+
+  .cat-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    aspect-ratio: 2/3;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .cat-card:hover { border-color: var(--gold); }
+
+  .cat-img { width: 100%; height: 100%; position: relative; }
+
+  .cat-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.7s ease;
+  }
+
+  .cat-card:hover .cat-img img { transform: scale(1.06); }
+
+  .cat-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,12,8,0.75) 0%, rgba(15,12,8,0.15) 60%);
+  }
+
+  .cat-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 18px 16px;
+  }
+
+  .cat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+
+  .cat-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: clamp(11px, 1.1vw, 13px);
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  .cat-arrow {
+    font-size: 13px; color: var(--gold);
+    opacity: 0; transform: translateX(-6px);
+    transition: all 0.3s ease 0.05s;
+    margin-top: 6px; display: block;
+  }
+
+  .cat-card:hover .cat-arrow { opacity: 1; transform: translateX(0); }
+
+  @media (max-width: 700px) {
+    .categories { position: relative; }
+    .categories-grid { 
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px;
+      gap: 12px;
+      scrollbar-width: none;
+    }
+    .categories-grid::-webkit-scrollbar { display: none; }
+    .cat-card { 
+      flex: 0 0 78vw;
+      aspect-ratio: 3/4;
+      scroll-snap-align: center;
+      border-radius: 16px;
+    }
+    .cat-card .cat-img img { border-radius: 16px; }
+    .cat-overlay {
+      border-radius: 16px;
+      background: linear-gradient(to top, rgba(15,12,8,0.85) 0%, rgba(15,12,8,0.0) 55%) !important;
+    }
+    .carousel-btn {
+      display: flex !important;
+    }
+  }
+
+  .carousel-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--black);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .carousel-btn-prev { left: 20px; }
+  .carousel-btn-next { right: 20px; }
+
+  /* ─── PARTNERS ─── */
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="helsinkihomedesign.html">
+      <div class="logo-top">HELSINKI <span>HOME</span></div>
+      <div class="logo-bottom">DESIGN</div>
+    </a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="helsinkihomedesign.html">Etusivu</a></li>
+      <li><a href="sisaremontit.html">Sisäremontit</a></li>
+      <li><a href="parvenrakennus.html">Parvenrakennus</a></li>
+      <li><a href="pienet-korjaustyot.html">Pienet korjaustyöt</a></li>
+      <li><a href="galleria.html">Galleria</a></li>
+      <li><a href="referenssit.html" class="active">Referenssit</a></li>
+      <li><a href="ota-yhteytta.html">Ota yhteyttä</a></li>
+    </ul>
+    <div class="nav-divider"></div>
+    <div class="lang-switcher">
+      <a href="#" class="active">fi</a>
+      <a href="#">en</a>
+      <a href="#">se</a>
+    </div>
+    <div class="nav-divider"></div>
+    <a href="https://www.instagram.com/helsinginhelmeksi/" target="_blank" class="nav-ig" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Valikko"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close">✕</button>
+  <a href="helsinkihomedesign.html">Etusivu</a>
+  <a href="sisaremontit.html">Sisäremontit</a>
+  <a href="parvenrakennus.html">Parvenrakennus</a>
+  <a href="pienet-korjaustyot.html">Pienet korjaustyöt</a>
+  <a href="galleria.html">Galleria</a>
+  <a href="referenssit.html" class="active">Referenssit</a>
+  <a href="ota-yhteytta.html">Ota yhteyttä</a>
+  <div class="mobile-lang">
+    <a href="#" class="active">fi</a>
+    <a href="#">en</a>
+    <a href="#">se</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <h1>Referenssejä</h1>
+  <div class="gold-line"></div>
+  <p>Toteutettuja kohteita pääkaupunkiseudulla — parvenrakennus, sisäremontit, liiketilojen remontit ja kylpyhuonesaneeraukset.</p>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects">
+  <div class="projects-grid">
+
+    <!-- Rauhankatu -->
+    <div class="project-card">
+      <div class="project-carousel" id="carousel-rauhankatu">
+        <div class="project-carousel-track" id="track-rauhankatu">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti4.jpg" alt="Rauhankatu parvi" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti8.jpg" alt="Rauhankatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti7.jpg" alt="Rauhankatu olohuone" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti5.jpg" alt="Rauhankatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti3.jpg" alt="Rauhankatu keittiö" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti9.jpg" alt="Rauhankatu parvi ylhäältä" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti10.jpg" alt="Rauhankatu kaapisto" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti11.jpg" alt="Rauhankatu kylpyhuone" loading="lazy">
+        </div>
+        <button class="carousel-arrow prev" onclick="carouselMove('rauhankatu', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="carouselMove('rauhankatu', 1)">›</button>
+        <div class="carousel-dots" id="dots-rauhankatu"></div>
+      </div>
+      <div class="project-info">
+        <h3>Rauhankatu</h3>
+        <div class="project-location">Kruunuhaka, Helsinki</div>
+        <div class="project-details">30 m² | 1h + avokeittiö</div>
+        <p class="project-desc">Kruunuhaan kolmionmuotoinen yksiö sai täydellisen uudistuksen — makuuparvi hyödyntää huimat 340 cm huonekorkeudet, kylpyhuoneremontin yhteydessä tehtiin päivänvalokatto ja kylmäsyvennykset muutettiin valaistuksella korostetuiksi tilaratkaisuiksi.</p>
+      </div>
+    </div>
+
+    <!-- Kuusitie -->
+    <div class="project-card">
+      <div class="project-carousel" id="carousel-kuusitie">
+        <div class="project-carousel-track" id="track-kuusitie">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2014/10/Kuusitie2.jpg" alt="Kuusitie parvi" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2014/10/Kuusitie1.jpg" alt="Kuusitie" loading="lazy">
+          <img src="KuusitieParvenrakennusRemontti2.jpg" alt="Kuusitie keittiö" loading="lazy">
+          <img src="KuusitieParvenrakennusRemontti1.jpg" alt="Kuusitie olohuone" loading="lazy">
+          <img src="KuusitieParvenrakennusRemontti3.jpg" alt="Kuusitie keittiö" loading="lazy">
+          <img src="KuusitieParvenrakennusRemontti4.jpg" alt="Kuusitie ylhäältä" loading="lazy">
+          <img src="KuusitieParvenrakennusRemontti5.jpg" alt="Kuusitie parvi" loading="lazy">
+          <img src="KuusitieParvenrakennusRemontti6.jpg" alt="Kuusitie keittiö" loading="lazy">
+          <img src="KuusitieParvenrakennusRemontti7.jpg" alt="Kuusitie keittiö" loading="lazy">
+        </div>
+        <button class="carousel-arrow prev" onclick="carouselMove('kuusitie', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="carouselMove('kuusitie', 1)">›</button>
+        <div class="carousel-dots" id="dots-kuusitie"></div>
+      </div>
+      <div class="project-info">
+        <h3>Kuusitie</h3>
+        <div class="project-location">Meilahti, Helsinki</div>
+        <div class="project-details">15,3 m² | 1h+avokeittiö + makuuparvi</div>
+        <p class="project-desc">Kompakti koti jossa jokainen neliö on käytetty älykkäästi. Meilahden pienen kolmionmuotoisen studion remontti sisälsi täydellisen saneerauksen ja parvenrakennuksen. Tilasta poistettiin seiniä.</p>
+      </div>
+    </div>
+
+    <!-- Helsinginkatu -->
+    <div class="project-card">
+      <div class="project-carousel" id="carousel-helsinginkatu">
+        <div class="project-carousel-track" id="track-helsinginkatu">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/untitled_20110407_3150-Edit1.jpg" alt="Helsinginkatu parvi" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/untitled_20110407_3161-680x453.jpg" alt="Helsinginkatu remontti" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/untitled_20110407_3153-Edit2-680x850.jpg" alt="Helsinginkatu parvi" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/untitled_20110407_3163-680x850.jpg" alt="Helsinginkatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/untitled_20110407_3166-680x791.jpg" alt="Helsinginkatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/untitled_20110407_31491-680x453.jpg" alt="Helsinginkatu" loading="lazy">
+        </div>
+        <button class="carousel-arrow prev" onclick="carouselMove('helsinginkatu', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="carouselMove('helsinginkatu', 1)">›</button>
+        <div class="carousel-dots" id="dots-helsinginkatu"></div>
+      </div>
+      <div class="project-info">
+        <h3>Helsinginkatu</h3>
+        <div class="project-location">Kallio, Helsinki</div>
+        <div class="project-details">21,5 m² | 1h + makuuparvi</div>
+        <p class="project-desc">Tähän 21,5 m² yksiöön rakennettiin makuuparvi ja toteutettiin täydellinen sisäremontti. Kohde sai laajasti huomiota mediassa toimivuutensa ja tilankäytön ansiosta.</p>
+      </div>
+    </div>
+
+    <!-- Viipurinkatu -->
+    <div class="project-card">
+      <div class="project-carousel" id="carousel-viipurinkatu">
+        <div class="project-carousel-track" id="track-viipurinkatu">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/viipurinkatu51.jpg" alt="Viipurinkatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/Kokonaiskuva-680x454.jpg" alt="Viipurinkatu olohuone" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/viipurinkatu000-680x453.jpg" alt="Viipurinkatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/viipurinkatu0031-680x454.jpg" alt="Viipurinkatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/viipurinkatu006-680x1018.jpg" alt="Viipurinkatu" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/myyty2-680x453.jpg" alt="Viipurinkatu keittiö" loading="lazy">
+          <img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/myyty3-680x565.jpg" alt="Viipurinkatu" loading="lazy">
+        </div>
+        <button class="carousel-arrow prev" onclick="carouselMove('viipurinkatu', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="carouselMove('viipurinkatu', 1)">›</button>
+        <div class="carousel-dots" id="dots-viipurinkatu"></div>
+      </div>
+      <div class="project-info">
+        <h3>Viipurinkatu</h3>
+        <div class="project-location">Kallio, Helsinki</div>
+        <div class="project-details">41 m² | 2h + avokeittiö + parveke</div>
+        <p class="project-desc">Kallion kaksion kokonaisvaltainen huoneistoremontti jossa yhdistettiin kauttaaltaan asennettu LED-valaistus, integroitu biotakka ja yhtenäinen alakatto. Kohde herätti myyntiaikana laajasti mediakiinnostusta.</p>
+      </div>
+    </div>
+
+    <!-- Torkkelinmäki -->
+    <div class="project-card">
+      <div class="project-carousel" id="carousel-torkkelinmaki">
+        <div class="project-carousel-track" id="track-torkkelinmaki">
+          <img src="http://helsinkihomedesign.fi/wp-content/uploads/2014/10/ParviTorkkelimm%C3%A4ki5-680x1024.jpg" alt="Torkkelinmäki parvi" loading="lazy">
+          <img src="http://helsinkihomedesign.fi/wp-content/uploads/2014/10/ParviTorkkelimm%C3%A4ki4-680x451.jpg" alt="Torkkelinmäki" loading="lazy">
+          <img src="http://helsinkihomedesign.fi/wp-content/uploads/2014/10/ParviTorkkelimm%C3%A4ki6-680x1024.jpg" alt="Torkkelinmäki" loading="lazy">
+          <img src="http://helsinkihomedesign.fi/wp-content/uploads/2014/10/ParviTorkkelimm%C3%A4ki7-680x451.jpg" alt="Torkkelinmäki rappuset" loading="lazy">
+          <img src="http://helsinkihomedesign.fi/wp-content/uploads/2014/10/ParviTorkkelimm%C3%A4ki8-680x451.jpg" alt="Torkkelinmäki" loading="lazy">
+        </div>
+        <button class="carousel-arrow prev" onclick="carouselMove('torkkelinmaki', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="carouselMove('torkkelinmaki', 1)">›</button>
+        <div class="carousel-dots" id="dots-torkkelinmaki"></div>
+      </div>
+      <div class="project-info">
+        <h3>Torkkelinmäki</h3>
+        <div class="project-location">Kallio, Helsinki</div>
+        <div class="project-details">Yksiö | 1h + parvi</div>
+        <p class="project-desc">Pintaremontoidussa yksiössä haluttiin lisätilaa — parvenrakennus ratkaisi ongelman täydellisesti. Pienen asunnon arvoa nostettiin hyvällä suunnittelulla jopa 15 000–25 000€.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<!-- MEISTÄ -->
+<section class="about">
+  <div class="section-title-sm">Meistä</div>
+  <div class="gold-line"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>Remonttiyritys sydämellä</h3>
+      <p>Helsinki Home Design on erikoistunut laadukkaiden kotien remontointiin pääkaupunkiseudulla. Toimimme vuodesta 2009 ja olemme toteuttaneet yli 520 remonttia.</p>
+      <p>Jokainen projekti tehdään huolella – kuin tekisimme sen itsellemme. Käytämme laadukkaita materiaaleja ja yhteistyökumppaneitamme ovat alan parhaat ammattilaiset.</p>
+    </div>
+    <div class="about-stats">
+      <div>
+        <div class="about-stat-num">520+</div>
+        <div class="about-stat-label">Valmistunutta kohdetta</div>
+      </div>
+      <div>
+        <div class="about-stat-num">15+</div>
+        <div class="about-stat-label">Vuotta kokemusta</div>
+      </div>
+      <div>
+        <a href="https://www.google.com/search?q=Helsinki+Home+Design+arvostelut" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div class="about-stat-num">5★</div>
+          <div class="about-stat-label">Google-arvosana</div>
+        </a>
+      </div>
+      <div>
+        <a href="https://www.urakkamaailma.fi/urakoitsija/helsinki-home-design-mets-t-asuntokonsultointi" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div class="about-stat-num">5★</div>
+          <div class="about-stat-label">Urakkamaailma</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESILLÄ MEDIASSA -->
+<section class="media-section">
+  <h2 class="section-title-sm">Esillä mediassa</h2>
+  <div class="partners-divider"></div>
+  <div class="media-marquee-wrap">
+    <div class="media-marquee">
+      <a href="https://areena.yle.fi/1-1756003?utm_medium=social&utm_campaign=areena-ios-share" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#aaa">Yle</text>
+          <text x="52" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="16" letter-spacing="1" fill="#aaa">Areena</text>
+        </svg>
+      </a>
+      <a href="https://www.is.fi/asuminen/art-2000001000211.html" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" letter-spacing="1" fill="#aaa">ILTA-SANOMAT</text>
+        </svg>
+      </a>
+      <a href="https://www.hs.fi/koti/art-2000002929624.html?share=2666ea49e6ad28c9e71ef93b9a9b8c41" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="4" y="30" font-family="Georgia, serif" font-weight="700" font-size="34" fill="#aaa">HS</text>
+        </svg>
+      </a>
+      <a href="https://www.city.fi/ilmiot/yksioiden+ostelija/3817/" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 110 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="22" letter-spacing="3" fill="#aaa">CITY</text>
+          <text x="72" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="14" letter-spacing="1" fill="#aaa">lehti</text>
+        </svg>
+      </a>
+      <a href="https://areena.yle.fi/1-1756003?utm_medium=social&utm_campaign=areena-ios-share" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#aaa">Yle</text>
+          <text x="52" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="16" letter-spacing="1" fill="#aaa">Areena</text>
+        </svg>
+      </a>
+      <a href="https://www.is.fi/asuminen/art-2000001000211.html" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" letter-spacing="1" fill="#aaa">ILTA-SANOMAT</text>
+        </svg>
+      </a>
+      <a href="https://www.hs.fi/koti/art-2000002929624.html?share=2666ea49e6ad28c9e71ef93b9a9b8c41" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="4" y="30" font-family="Georgia, serif" font-weight="700" font-size="34" fill="#aaa">HS</text>
+        </svg>
+      </a>
+      <a href="https://www.city.fi/ilmiot/yksioiden+ostelija/3817/" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 110 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="22" letter-spacing="3" fill="#aaa">CITY</text>
+          <text x="72" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="14" letter-spacing="1" fill="#aaa">lehti</text>
+        </svg>
+      </a>
+      <a href="https://areena.yle.fi/1-1756003?utm_medium=social&utm_campaign=areena-ios-share" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#aaa">Yle</text>
+          <text x="52" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="16" letter-spacing="1" fill="#aaa">Areena</text>
+        </svg>
+      </a>
+      <a href="https://www.is.fi/asuminen/art-2000001000211.html" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" letter-spacing="1" fill="#aaa">ILTA-SANOMAT</text>
+        </svg>
+      </a>
+      <a href="https://www.hs.fi/koti/art-2000002929624.html?share=2666ea49e6ad28c9e71ef93b9a9b8c41" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="4" y="30" font-family="Georgia, serif" font-weight="700" font-size="34" fill="#aaa">HS</text>
+        </svg>
+      </a>
+      <a href="https://www.city.fi/ilmiot/yksioiden+ostelija/3817/" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 110 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="22" letter-spacing="3" fill="#aaa">CITY</text>
+          <text x="72" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="14" letter-spacing="1" fill="#aaa">lehti</text>
+        </svg>
+      </a>
+      <a href="https://areena.yle.fi/1-1756003?utm_medium=social&utm_campaign=areena-ios-share" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#aaa">Yle</text>
+          <text x="52" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="16" letter-spacing="1" fill="#aaa">Areena</text>
+        </svg>
+      </a>
+      <a href="https://www.is.fi/asuminen/art-2000001000211.html" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" letter-spacing="1" fill="#aaa">ILTA-SANOMAT</text>
+        </svg>
+      </a>
+      <a href="https://www.hs.fi/koti/art-2000002929624.html?share=2666ea49e6ad28c9e71ef93b9a9b8c41" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="4" y="30" font-family="Georgia, serif" font-weight="700" font-size="34" fill="#aaa">HS</text>
+        </svg>
+      </a>
+      <a href="https://www.city.fi/ilmiot/yksioiden+ostelija/3817/" target="_blank" class="media-logo-item">
+        <svg viewBox="0 0 110 40" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="22" letter-spacing="3" fill="#aaa">CITY</text>
+          <text x="72" y="28" font-family="'Montserrat', sans-serif" font-weight="300" font-size="14" letter-spacing="1" fill="#aaa">lehti</text>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="yhteystiedot">
+  <div class="footer-logo">
+    <div class="logo-top">HELSINKI <span>HOME</span></div>
+    <div class="logo-bottom">DESIGN</div>
+  </div>
+
+  <div class="footer-col">
+    <h4>Navigointi</h4>
+    <ul>
+      <li><a href="#">Etusivu</a></li>
+      <li><a href="sisaremontit.html">Sisäremontit</a></li>
+      <li><a href="parvenrakennus.html">Parvenrakennus</a></li>
+      <li><a href="pienet-korjaustyot.html">Pienet korjaustyöt</a></li>
+      <li><a href="galleria.html">Galleria</a></li>
+      <li><a href="referenssit.html" class="active">Referenssit</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+      <li><a href="https://www.instagram.com/helsinginhelmeksi/" target="_blank">Instagram</a></li>
+      <li><a href="tietosuojaseloste.html">Tietosuojaseloste</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col">
+    <h4>Yhteystiedot</h4>
+    <p>
+      <strong>Helsinki Home Design</strong>
+      Aleksis Kiven Katu 26<br>
+      00500 Helsinki<br>
+      Y-tunnus: 2073403-6<br><br>
+      <a href="/cdn-cgi/l/email-protection#6c180d0d1a05420109181f2c0409001f050207050403010908091f050b02420a05" class="footer-link">
+        <span>taavi</span><span style="display:none">REMOVE</span><span>.mets</span><span>&#64;</span><span>helsinkihome</span><span>design.fi</span>
+      </a><br>
+      <a href="tel:+358400210381" class="footer-link">
+        <span>040</span><span style="display:none">REMOVE</span><span>&#32;02</span><span>10</span><span>381</span>
+      </a>
+    </p>
+  </div>
+
+  <div style="
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 40px;
+    padding-top: 24px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+  ">
+    © 2025 Helsinki Home Design. Kaikki oikeudet pidätetään.
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.hamburger')?.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.add('open');
+  });
+  document.querySelector('.mobile-menu-close')?.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+  });
+
+  // Referenssi-karusellit
+  var carousels = {};
+  function initCarousel(id) {
+    var track = document.getElementById('track-' + id);
+    if (!track) return;
+    var imgs = track.querySelectorAll('img');
+    var dots = document.getElementById('dots-' + id);
+    carousels[id] = { index: 0, total: imgs.length };
+    imgs.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = function() { carouselGoTo(id, i); };
+      dots.appendChild(dot);
+    });
+  }
+  function carouselMove(id, dir) {
+    var c = carousels[id];
+    carouselGoTo(id, (c.index + dir + c.total) % c.total);
+  }
+  function carouselGoTo(id, index) {
+    var c = carousels[id];
+    c.index = index;
+    var track = document.getElementById('track-' + id);
+    var w = track.parentElement.offsetWidth;
+    track.style.transform = 'translateX(-' + (index * w) + 'px)';
+    document.getElementById('dots-' + id).querySelectorAll('.carousel-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === index);
+    });
+  }
+  initCarousel('rauhankatu');
+  initCarousel('kuusitie');
+  initCarousel('helsinginkatu');
+  initCarousel('viipurinkatu');
+  initCarousel('torkkelinmaki');
+  var vid = document.getElementById('heroVideo');
+  if (vid) {
+    vid.play().catch(function() {
+      document.body.addEventListener('click', function() { vid.play(); }, { once: true });
+      document.body.addEventListener('touchstart', function() { vid.play(); }, { once: true });
+    });
+  }
+
+  // Obfuscate contact details from bots
+  (function() {
+    var u = 'taavi.mets';
+    var d = 'helsinkihomedesign' + '.' + 'fi';
+    var e = u + '\u0040' + d;
+    var el = document.getElementById('footer-email');
+    if (el) {
+      var a = document.createElement('a');
+      a.href = 'mail' + 'to:' + e;
+      a.textContent = e;
+      a.style.cssText = 'color:rgba(255,255,255,0.55);text-decoration:none;';
+      el.appendChild(a);
+    }
+    var p1 = '040'; var p2 = '0210'; var p3 = '381';
+    var phone = p1 + ' ' + p2 + p3;
+    var pel = document.getElementById('footer-phone');
+    if (pel) {
+      var b = document.createElement('a');
+      b.href = 'te' + 'l:+358' + p1.slice(1) + p2 + p3;
+      b.textContent = phone;
+      b.style.cssText = 'color:rgba(255,255,255,0.55);text-decoration:none;';
+      pel.appendChild(b);
+    }
+  })();
+
+  // Marquee — ensure it starts visually centered on wide screens
+  window.addEventListener('load', function() {
+    const wrap = document.querySelector('.media-marquee-wrap');
+    const marquee = document.querySelector('.media-marquee');
+    if (!wrap || !marquee) return;
+    const totalW = marquee.scrollWidth;
+    const halfW = totalW / 2;
+    const wrapW = wrap.offsetWidth;
+    // If content is narrower than viewport, nudge start so it looks centered
+    if (halfW < wrapW) {
+      const nudge = (wrapW - halfW) / 2;
+      marquee.style.setProperty('--nudge', nudge + 'px');
+    }
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+<!-- PYYDÄ TARJOUS NAPPI -->
+<a href="ota-yhteytta.html" id="tarjousnappi" style="
+  position: fixed;
+  left: -45px;
+  top: 65%;
+  transform: translateY(-50%) rotate(-90deg);
+  background: #F5F0E8;
+  color: #1a1a1a;
+  font-family: Montserrat, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid #C9A96E;
+  white-space: nowrap;
+  z-index: 9999;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+">Pyydä tarjous</a>
+
+<script>
+  // Näytä nappi vasta kun kortit-osio tulee näkyviin
+  var intro = document.getElementById('kohteet');
+  var nappi = document.getElementById('tarjousnappi');
+  if (intro && nappi) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          nappi.style.opacity = '1';
+        } else {
+          // Piilota vain jos ollaan hero-alueen yläpuolella
+          if (window.scrollY < intro.offsetTop) {
+            nappi.style.opacity = '0';
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(intro);
+  }
+</script>
+
+
+<!-- PYYDÄ TARJOUS NAPPI -->
+<a href="ota-yhteytta.html" id="tarjousnappi" style="
+  position: fixed;
+  left: -45px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  background: #F5F0E8;
+  color: #1a1a1a;
+  font-family: Montserrat, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid #C9A96E;
+  white-space: nowrap;
+  z-index: 9999;
+  display: block;
+">Pyydä tarjous</a>
+
+</body>
+</html>
