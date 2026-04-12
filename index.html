@@ -942,6 +942,16 @@
   <video class="hero-video" autoplay muted loop playsinline preload="auto" id="heroVideo" webkit-playsinline poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80">
     <source src="https://res.cloudinary.com/dlfkalpxm/video/upload/c_fill,h_1080,vc_h264,w_1920/v1775985775/hero_adohbv.mp4" type="video/mp4">
   </video>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var v = document.getElementById('heroVideo');
+      if (v) { v.muted = true; v.play(); }
+    });
+    window.addEventListener('load', function() {
+      var v = document.getElementById('heroVideo');
+      if (v) { v.muted = true; v.play(); }
+    });
+  </script>
 
   <!-- Fallback-kuva jos video ei lataudu -->
   <div class="hero-video-fallback"></div>
