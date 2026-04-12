@@ -942,25 +942,6 @@
   <video class="hero-video" autoplay muted loop playsinline preload="auto" id="heroVideo" webkit-playsinline poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80">
     <source src="https://res.cloudinary.com/dlfkalpxm/video/upload/c_fill,h_1080,vc_h264,w_1920/v1775985775/hero_adohbv.mp4" type="video/mp4">
   </video>
-  <script>
-    (function() {
-      var v = document.getElementById('heroVideo');
-      v.muted = true;
-      var p = v.play();
-      if (p !== undefined) {
-        p.catch(function() {
-          v.muted = true;
-          v.play();
-        });
-      }
-      document.addEventListener('touchstart', function() {
-        v.play();
-      }, { once: true });
-      document.addEventListener('click', function() {
-        v.play();
-      }, { once: true });
-    })();
-  </script>
 
   <!-- Fallback-kuva jos video ei lataudu -->
   <div class="hero-video-fallback"></div>
@@ -1340,7 +1321,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Carousel scroll
   function scrollCarousel(dir) {
     var grid = document.getElementById('categoriesGrid');
