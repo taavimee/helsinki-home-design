@@ -1383,10 +1383,24 @@
   initCarousel('viipurinkatu');
   var vid = document.getElementById('heroVideo');
   if (vid) {
-    vid.play().catch(function() {
-      document.body.addEventListener('click', function() { vid.play(); }, { once: true });
-      document.body.addEventListener('touchstart', function() { vid.play(); }, { once: true });
-    });
+    vid.muted = true;
+    vid.volume = 0;
+    function tryPlay() {
+      var p = vid.play();
+      if (p !== undefined) {
+        p.catch(function() {
+          vid.muted = true;
+          vid.volume = 0;
+          vid.play();
+        });
+      }
+    }
+    tryPlay();
+    setTimeout(tryPlay, 500);
+    setTimeout(tryPlay, 1500);
+    document.addEventListener('touchstart', tryPlay, { once: true });
+    document.addEventListener('click', tryPlay, { once: true });
+    document.addEventListener('scroll', tryPlay, { once: true });
   }
 
   // Obfuscate contact details from bots
