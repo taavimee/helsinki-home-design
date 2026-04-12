@@ -938,19 +938,9 @@
 <!-- HERO -->
 <section class="hero">
 
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" id="heroVideo" webkit-playsinline poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80">
+  <video class="hero-video" autoplay muted loop playsinline>
     <source src="https://res.cloudinary.com/dlfkalpxm/video/upload/c_fill,h_1080,vc_h264,w_1920/v1775985775/hero_adohbv.mp4" type="video/mp4">
   </video>
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      var v = document.getElementById('heroVideo');
-      if (v) { v.muted = true; v.play(); }
-    });
-    window.addEventListener('load', function() {
-      var v = document.getElementById('heroVideo');
-      if (v) { v.muted = true; v.play(); }
-    });
-  </script>
 
   <!-- Fallback-kuva jos video ei lataudu -->
   <div class="hero-video-fallback"></div>
@@ -1371,27 +1361,6 @@
   initCarousel('kuusitie');
   initCarousel('helsinginkatu');
   initCarousel('viipurinkatu');
-  var vid = document.getElementById('heroVideo');
-  if (vid) {
-    vid.muted = true;
-    vid.volume = 0;
-    function tryPlay() {
-      var p = vid.play();
-      if (p !== undefined) {
-        p.catch(function() {
-          vid.muted = true;
-          vid.volume = 0;
-          vid.play();
-        });
-      }
-    }
-    tryPlay();
-    setTimeout(tryPlay, 500);
-    setTimeout(tryPlay, 1500);
-    document.addEventListener('touchstart', tryPlay, { once: true });
-    document.addEventListener('click', tryPlay, { once: true });
-    document.addEventListener('scroll', tryPlay, { once: true });
-  }
 
   // Obfuscate contact details from bots
   (function() {
