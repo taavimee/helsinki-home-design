@@ -812,15 +812,56 @@
     margin-bottom: 4px;
   }
 
-  /* ─── MOBILE HAMBURGER (simple) ─── */
+  /* ─── MOBILE HAMBURGER ─── */
   .hamburger { display: none; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--cream, #f5f0e8);
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--black);
+  }
+  .mobile-lang {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .mobile-lang a {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
 
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
     .nav-right { gap: 16px; }
     .hamburger {
-      display: block;
+      display: flex !important;
       font-size: 22px;
       cursor: pointer;
       color: var(--black);
@@ -874,15 +915,32 @@
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
       </svg>
     </a>
-    <button class="hamburger" aria-label="Valikko">☰</button>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Valikko">☰</button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="index.html" class="active" onclick="document.getElementById('mobileMenu').classList.remove('open')">Etusivu</a>
+  <a href="sisaremontit.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Sisäremontit</a>
+  <a href="parvenrakennus.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Parvenrakennus</a>
+  <a href="pienet-korjaustyot.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pienet korjaustyöt</a>
+  <a href="galleria.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Galleria</a>
+  <a href="referenssit.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Referenssit</a>
+  <a href="ota-yhteytta.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Ota yhteyttä</a>
+  <div class="mobile-lang">
+    <a href="#" class="active">fi</a>
+    <a href="#">en</a>
+    <a href="#">se</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
 
   <video class="hero-video" autoplay muted loop playsinline preload="auto" id="heroVideo">
-    <source src="hero.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/dlfkalpxm/video/upload/v1775985775/hero_adohbv.mp4" type="video/mp4">
   </video>
 
   <!-- Fallback-kuva jos video ei lataudu -->
