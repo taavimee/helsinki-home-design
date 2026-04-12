@@ -154,9 +154,10 @@
     object-fit: cover;
     object-position: center;
     z-index: 0;
+    filter: grayscale(30%) brightness(0.85);
   }
 
-  /* Dark + subtle grey overlay on top of video */
+  /* Dark overlay on top of video */
   .hero-overlay {
     position: absolute;
     inset: 0;
@@ -167,8 +168,6 @@
       rgba(15, 13, 10, 0.45) 50%,
       rgba(15, 13, 10, 0.65) 100%
     );
-    /* Also desaturate/grey the video slightly */
-    backdrop-filter: grayscale(30%) brightness(0.85);
   }
 
   .hero-content {
