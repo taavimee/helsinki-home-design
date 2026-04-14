@@ -127,6 +127,13 @@
   .service-desc { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
 
   /* MEISTÄ */
+  /* GALLERY */
+  .gallery { padding: 80px 60px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 1100px; margin: 0 auto; }
+  .gallery-item { overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+  .gallery-item:hover img { transform: scale(1.04); }
+
   .about { background: var(--white); padding: 90px 60px; text-align: center; }
   .about .section-title-sm { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 11px; text-align: center; color: var(--text-light); margin-bottom: 16px; letter-spacing: 0.3em; text-transform: uppercase; }
   .about .gold-line { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 40px; }
@@ -237,6 +244,8 @@
     .parvi-grid { columns: 2; }
     .process { padding: 60px 24px; }
     .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery { padding: 60px 24px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
     .about { padding: 60px 24px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     footer { grid-template-columns: 1fr; padding: 50px 24px; gap: 40px; }
@@ -464,6 +473,17 @@
 </section>
 
 <!-- MEISTÄ -->
+<section class="gallery">
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti3.jpg" alt="Keittiö" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://helsinkihomedesign.fi/wp-content/uploads/2016/03/RauhankatuNetti7.jpg" alt="Olohuone" loading="lazy"></div>
+    <div class="gallery-item"><img src="rauhankatuparvenrakennusremontti.jpg" alt="Rauhankatu parvenrakennus" loading="lazy"></div>
+    <div class="gallery-item"><img src="rauhankatuparviloft.jpg" alt="Rauhankatu loft" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/saneerattu_huoneisto_helsinginHelmeksi.jpg" alt="Pengerkatu" loading="lazy"></div>
+    <div class="gallery-item"><img src="https://helsinkihomedesign.fi/wp-content/uploads/2012/11/viipurinkatu000.jpg" alt="Viipurinkatu" loading="lazy"></div>
+  </div>
+</section>
+
 <section class="about">
   <div class="section-title-sm">Meistä</div>
   <div class="gold-line"></div>
@@ -661,6 +681,7 @@
 <!-- PYYDÄ TARJOUS NAPPI -->
 <a href="ota-yhteytta.html" id="tarjousnappi" style="
   position: fixed;
+  right: auto;
   left: -45px;
   top: 50%;
   transform: translateY(-50%) rotate(-90deg);
