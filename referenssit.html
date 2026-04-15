@@ -734,6 +734,26 @@
 <section class="projects">
   <div class="projects-grid">
 
+    <div class="project-card">
+      <div class="project-carousel" id="carousel-topcoat">
+        <div class="project-carousel-track" id="track-topcoat">
+          <img src="liiketilaremontti.jpg" alt="TopCoat Lippulaiva" loading="lazy">
+          <img src="liiketilaseinatehoste.jpg" alt="TopCoat kukkaperhonen" loading="lazy">
+          <img src="liiketilaremonttiseinatehoste.jpg" alt="TopCoat seinätehoste" loading="lazy">
+        </div>
+        <button class="carousel-arrow prev" onclick="carouselMove('topcoat', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="carouselMove('topcoat', 1)">›</button>
+        <div class="carousel-dots" id="dots-topcoat"></div>
+      </div>
+      <div class="project-info">
+        <h3 class="project-title">TopCoat — Lippulaiva</h3>
+        <div class="project-location">Espoonlahti, Espoo</div>
+        <div class="project-details">Liiketila | Kauneushoitola</div>
+        <p class="project-desc">Espoonlahden Lippulaivaan avautuneen TopCoat-kauneushoitolan täydellinen liiketilaremontti. Hoitohuone ja iso liiketila saneerattiin kauttaaltaan — kruununa seinälle toteutettu valaistulla LED-tehosteella koristeltu kukkaperhonen.</p>
+      </div>
+    </div>
+
+
     <!-- Rauhankatu -->
     <div class="project-card">
       <div class="project-carousel" id="carousel-rauhankatu">
@@ -763,7 +783,7 @@
     <div class="project-card">
       <div class="project-carousel" id="carousel-kuusitie">
         <div class="project-carousel-track" id="track-kuusitie">
-          <img src="rauhankaturemonttijaparvenrakennus3.jpg" alt="Kuusitie parvi" loading="lazy">
+          <img src="kuusitieparvenrakennusremontti1.jpg" alt="Kuusitie parvi" loading="lazy">
           <img src="kuusitieparvenrakennusremontti.jpg" alt="Kuusitie" loading="lazy">
           <img src="kuusitieparvenrakennusremontti3.jpg" alt="Kuusitie keittiö" loading="lazy">
           <img src="kuusitieparvenrakennusremontti1.jpg" alt="Kuusitie olohuone" loading="lazy">
@@ -1090,6 +1110,7 @@
   initCarousel('helsinginkatu');
   initCarousel('viipurinkatu');
   initCarousel('torkkelinmaki');
+  initCarousel('topcoat');
   var vid = document.getElementById('heroVideo');
   if (vid) {
     vid.play().catch(function() {
