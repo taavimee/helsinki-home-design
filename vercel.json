@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/parven-rakennus",
+      "destination": "/parvenrakennus.html",
+      "permanent": true
+    },
+    {
+      "source": "/parven-rakennus/",
+      "destination": "/parvenrakennus.html",
+      "permanent": true
+    }
+  ]
+}
