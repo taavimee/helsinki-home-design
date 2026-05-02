@@ -9,6 +9,36 @@
       "source": "/parven-rakennus/",
       "destination": "/parvenrakennus.html",
       "permanent": true
+    },
+    {
+      "source": "/category/referensseja",
+      "destination": "/referenssit.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/referensseja/",
+      "destination": "/referenssit.html",
+      "permanent": true
+    },
+    {
+      "source": "/yritystiedot",
+      "destination": "/index.html",
+      "permanent": true
+    },
+    {
+      "source": "/yritystiedot/",
+      "destination": "/index.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/parvi",
+      "destination": "/parvenrakennus.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/parvi/",
+      "destination": "/parvenrakennus.html",
+      "permanent": true
     }
   ]
 }
